@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hicham Nidali - Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--bg2:#12121a;--card:#181824;--accent:#c9a84c;--adim:rgba(201,168,76,.15);--aglow:rgba(201,168,76,.3);--t1:#e8e6e3;--t2:#9a9aab;--t3:#5a5a6e;--brd:rgba(255,255,255,.06);--ba:rgba(201,168,76,.25);--fd:'Playfair Display',Georgia,serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace;--r:12px;--rl:20px;--tr:.35s cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.ctn{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:var(--tr);background:transparent}
+.nav.sc{background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);padding:.8rem 0}
+.nav .ctn{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:1.5rem;font-weight:700}
+.lm{width:42px;height:42px;border:2px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);transition:var(--tr)}
+.lm:hover{background:var(--adim)}
+.nl{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nl a{font-size:.9rem;font-weight:500;color:var(--t2);transition:var(--tr);letter-spacing:.03em;text-transform:uppercase;position:relative}
+.nl a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent);transition:var(--tr)}
+.nl a:hover{color:var(--accent)}
+.nl a:hover::after{width:100%}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;background:none;border:none;padding:4px}
+.ham span{width:26px;height:2px;background:var(--t1);transition:var(--tr);border-radius:2px}
+.ham.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.on span:nth-child(2){opacity:0}
+.ham.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* SECTIONS */
+.sec{padding:7rem 0;position:relative}
+.sl{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--fm);font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.15em;margin-bottom:1.5rem}
+.sl::before{content:'';width:32px;height:1px;background:var(--accent)}
+.st{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.2;margin-bottom:1.5rem}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:5rem}
+.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:80vw;height:80vw;background:radial-gradient(circle,var(--adim) 0%,transparent 70%);pointer-events:none;animation:hp 8s ease-in-out infinite alternate}
+@keyframes hp{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.15) translate(-5%,5%);opacity:.6}}
+.hero .ctn{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hc{animation:fsu 1s ease-out}
+.hg{font-family:var(--fm);font-size:.85rem;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem}
+.hg::before{content:'//';opacity:.5}
+.hn{font-family:var(--fd);font-size:clamp(2.8rem,6vw,4.5rem);font-weight:700;line-height:1.08;margin-bottom:.8rem}
+.hn .ac{color:var(--accent)}
+.hr{font-size:1.15rem;color:var(--t2);margin-bottom:1rem}
+.htl{font-family:var(--fd);font-style:italic;font-size:1.1rem;color:var(--t3);margin-bottom:2.5rem;border-left:2px solid var(--accent);padding-left:1rem}
+.hb{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;font-family:var(--fb);font-size:.9rem;font-weight:600;transition:var(--tr);cursor:pointer;border:none}
+.bp{background:var(--accent);color:var(--bg)}
+.bp:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--aglow)}
+.bo{background:transparent;color:var(--t1);border:1.5px solid var(--brd)}
+.bo:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hv{display:flex;justify-content:center;align-items:center;animation:fsu 1s ease-out .3s both}
+.pf{position:relative;width:380px;height:420px}
+.piw{width:100%;height:100%;border-radius:var(--rl);overflow:hidden;border:2px solid var(--brd);background:var(--bg2)}
+.piw svg{width:100%;height:100%}
+.pf::before{content:'';position:absolute;top:-8px;right:-8px;width:60%;height:60%;border:2px solid var(--accent);border-radius:var(--rl);border-bottom:none;border-left:none;opacity:.4}
+.pf::after{content:'';position:absolute;bottom:-8px;left:-8px;width:60%;height:60%;border:2px solid var(--accent);border-radius:var(--rl);border-top:none;border-right:none;opacity:.4}
+.fb{position:absolute;background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:.6rem 1rem;font-family:var(--fm);font-size:.75rem;color:var(--accent);animation:fl 4s ease-in-out infinite;white-space:nowrap}
+.fb.tr{top:-15px;right:-20px}
+.fb.bl{bottom:-15px;left:-20px;animation-delay:2s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes fsu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ABOUT */
+.abt{background:var(--bg2)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.at p{color:var(--t2);margin-bottom:1.5rem;font-size:1.02rem}
+.el{list-style:none;margin-top:1.5rem}
+.el li{position:relative;padding-left:1.5rem;margin-bottom:1rem;color:var(--t2);font-size:.95rem}
+.el li::before{content:'';position:absolute;left:0;top:10px;width:8px;height:8px;border:2px solid var(--accent);border-radius:50%}
+.el li strong{color:var(--t1);display:block;font-weight:600}
+.sp{display:flex;flex-direction:column;gap:2rem}
+.sc h4{font-family:var(--fm);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:.8rem}
+.stg{display:flex;flex-wrap:wrap;gap:.5rem}
+.sk{background:var(--card);border:1px solid var(--brd);padding:.4rem .9rem;border-radius:50px;font-size:.82rem;color:var(--t2);transition:var(--tr)}
+.sk:hover{border-color:var(--accent);color:var(--accent);background:var(--adim)}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.li{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--brd);padding:.55rem .9rem;border-radius:var(--r);font-size:.82rem}
+.li .ln{color:var(--t1);font-weight:500}
+.li .ll{color:var(--t3);font-size:.72rem;font-family:var(--fm)}
+
+/* PROJECTS */
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;margin-top:2rem}
+.pc{background:var(--card);border:1px solid var(--brd);border-radius:var(--rl);overflow:hidden;transition:var(--tr)}
+.pc:hover{transform:translateY(-6px);border-color:var(--ba);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px var(--adim)}
+.pi{width:100%;height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pi::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 40%,var(--adim) 100%)}
+.pi svg{width:60px;height:60px;opacity:.5;position:relative;z-index:1}
+.pb{padding:1.5rem}
+.pt{font-family:var(--fd);font-size:1.25rem;font-weight:600;margin-bottom:.5rem}
+.pd{font-size:.9rem;color:var(--t2);margin-bottom:1.2rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ptc{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.ptc span{font-family:var(--fm);font-size:.7rem;background:var(--adim);color:var(--accent);padding:.25rem .6rem;border-radius:50px}
+.pls{display:flex;gap:.8rem}
+.pl{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:500;color:var(--t2);transition:var(--tr)}
+.pl:hover{color:var(--accent)}
+.pl svg{width:16px;height:16px}
+
+/* CONTACT */
+.ct{background:var(--bg2)}
+.cg{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start}
+.ci p{color:var(--t2);font-size:1rem;margin-bottom:2rem;line-height:1.7}
+.cls{display:flex;flex-direction:column;gap:1rem}
+.cli{display:flex;align-items:center;gap:1rem;color:var(--t2);transition:var(--tr);font-size:.95rem}
+.cli:hover{color:var(--accent)}
+.ic{width:44px;height:44px;border-radius:50%;border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;transition:var(--tr);flex-shrink:0}
+.cli:hover .ic{border-color:var(--accent);background:var(--adim)}
+.cli svg{width:18px;height:18px}
+.cf{display:flex;flex-direction:column;gap:1.2rem}
+.fg{position:relative}
+.fg input,.fg textarea{width:100%;background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:1rem 1.2rem;font-family:var(--fb);font-size:.92rem;color:var(--t1);transition:var(--tr);outline:none}
+.fg textarea{resize:vertical;min-height:140px}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--t3)}
+.fg input:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--adim)}
+.fg .em{display:none;font-size:.75rem;color:#e74c3c;margin-top:.4rem;font-family:var(--fm)}
+.fg.er input,.fg.er textarea{border-color:#e74c3c}
+.fg.er .em{display:block}
+.fs{display:none;background:var(--adim);border:1px solid var(--ba);border-radius:var(--r);padding:1rem;color:var(--accent);font-size:.9rem;text-align:center}
+.fs.sh{display:block}
+.fe{display:none;background:rgba(231,76,60,.1);border:1px solid #e74c3c;border-radius:var(--r);padding:1rem;color:#e74c3c;font-size:.9rem;text-align:center}
+.fe.sh{display:block}
+.bs{align-self:flex-start;background:var(--accent);color:var(--bg);border:none;padding:.9rem 2.5rem;border-radius:50px;font-family:var(--fb);font-size:.9rem;font-weight:600;cursor:pointer;transition:var(--tr)}
+.bs:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--aglow)}
+.bs:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* FOOTER */
+.ft{padding:3rem 0;border-top:1px solid var(--brd)}
+.ft .ctn{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.fc{font-size:.85rem;color:var(--t3)}
+.fc span{color:var(--accent)}
+.si{display:flex;gap:.8rem}
+.sic{width:42px;height:42px;border-radius:50%;border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;transition:var(--tr);color:var(--t2)}
+.sic:hover{border-color:var(--accent);color:var(--accent);background:var(--adim);transform:translateY(-3px)}
+.sic svg{width:18px;height:18px}
+.btt{position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;opacity:0;visibility:hidden;transform:translateY(10px);transition:var(--tr);z-index:999;box-shadow:0 4px 20px var(--aglow)}
+.btt.vi{opacity:1;visibility:visible;transform:translateY(0)}
+.btt:hover{transform:translateY(-3px)}
+.btt svg{width:20px;height:20px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.rv.vi{opacity:1;transform:translateY(0)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;opacity:0;visibility:hidden;transition:var(--tr)}
+.ov.sh{opacity:1;visibility:visible}
+
+@media(max-width:1024px){
+.hero .ctn{grid-template-columns:1fr;text-align:center}
+.hv{order:-1}.pf{width:280px;height:310px}
+.hg{justify-content:center}.hb{justify-content:center}
+.htl{text-align:center;border-left:none;border-top:2px solid var(--accent);padding-left:0;padding-top:.75rem}
+.ag{grid-template-columns:1fr;gap:3rem}
+.cg{grid-template-columns:1fr;gap:3rem}
+}
+@media(max-width:768px){
+.nl{position:fixed;top:0;right:-100%;width:75%;height:100vh;background:var(--bg2);flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:var(--tr);border-left:1px solid var(--brd)}
+.nl.op{right:0}.ham{display:flex}
+.sec{padding:5rem 0}.pg{grid-template-columns:1fr}
+.ctn{padding:0 1.2rem}.lg{grid-template-columns:1fr}
+.ft .ctn{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){.hn{font-size:2.2rem}.pf{width:220px;height:250px}.fb{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nb"><div class="ctn"><a href="#" class="logo"><div class="lm">HN</div></a>
+<ul class="nl" id="nl"><li><a href="#accueil" onclick="cn()">Accueil</a></li><li><a href="#about" onclick="cn()">A propos</a></li><li><a href="#projects" onclick="cn()">Projets</a></li><li><a href="#contact" onclick="cn()">Contact</a></li></ul>
+<button class="ham" id="hm" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="ov" id="ov" onclick="cn()"></div>
+
+<section class="hero sec" id="accueil"><div class="ctn">
+<div class="hc">
+<div class="hg">Bienvenue sur mon portfolio</div>
+<h1 class="hn">Hicham<br><span class="ac">Nidali</span></h1>
+<p class="hr">Developpeur &amp; Ingenieur Systemes d'Information et AI</p>
+<p class="htl">"Transformer les idees en solutions numeriques elegantes, une ligne de code a la fois."</p>
+<div class="hb">
+<a href="#projects" class="btn bp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Voir mes projets</a>
+<a href="#contact" class="btn bo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Me contacter</a>
+</div></div>
+<div class="hv"><div class="pf"><div class="piw"><img src="HichamNidali.jpg" alt="Hicham Nidali" style="width: 100%; height: 100%; object-fit: cover;"><svg viewBox="0 0 380 420" fill="none"><rect width="380" height="420" fill="#181824"/><circle cx="190" cy="160" r="65" fill="#252538"/><ellipse cx="190" cy="340" rx="100" ry="80" fill="#252538"/><text x="190" y="400" text-anchor="middle" fill="#5a5a6e" font-size="13">Votre photo ici</text></svg></div>
+<div class="fb tr">&lt;/&gt; Code</div><div class="fb bl">SI Engineer</div></div></div>
+</div></section>
+
+<section class="abt sec" id="about"><div class="ctn">
+<div class="rv"><span class="sl">A propos</span><h2 class="st">Qui suis-je ?</h2></div>
+<div class="ag">
+<div class="at rv">
+<p>Je suis Hicham Nidali, un developpeur passionne de 22 ans, originaire du Maroc. Curieux et determine, je m'interesse au developpement web, aux systemes d'information, au Big Data et a l'intelligence artificielle.</p>
+<p>Je suis convaincu que la technologie, quand elle est bien pensee, peut resoudre de vrais problemes et ameliorer la vie des gens.</p>
+<h3 style="font-family:var(--fd);font-size:1.3rem;margin:.8rem 0;color:var(--t1)">Formation</h3>
+<ul class="el">
+<li><strong>Licence en Systemes d'Information et AI</strong>Specialisation en conception et gestion des systemes d'information et AI.</li>
+<li><strong>DUT en Genie Informatique</strong>Formation technique en developpement logiciel, bases de donnees et reseaux.</li>
+</ul></div>
+<div class="sp rv">
+<div class="sc"><h4>Langages</h4><div class="stg"><span class="sk">HTML / CSS</span><span class="sk">Python</span><span class="sk">Java</span><span class="sk">SQL</span></div></div>
+<div class="sc"><h4>Frameworks &amp; Outils</h4><div class="stg"><span class="sk">Spring Boot</span><span class="sk">Spring Security</span><span class="sk">Vue.js</span><span class="sk">Scikit-learn</span><span class="sk">Redis</span><span class="sk">MongoDB</span><span class="sk">Linux</span></div></div>
+<div class="sc"><h4>Langues</h4><div class="lg">
+<div class="li"><span class="ln">Amazigh</span><span class="ll">Maternelle</span></div>
+<div class="li"><span class="ln">Arabe</span><span class="ll">Courant</span></div>
+<div class="li"><span class="ln">Francais</span><span class="ll">Intermediaire</span></div>
+<div class="li"><span class="ln">Anglais</span><span class="ll">Intermediaire</span></div>
+<div class="li"><span class="ln">Espagnol</span><span class="ll">Debutant</span></div>
+</div></div></div></div></div></section>
+
+<section class="sec" id="projects"><div class="ctn">
+<div class="rv"><span class="sl">Projets</span><h2 class="st">Travaux recents</h2>
+<p style="color:var(--t2);max-width:600px;margin-bottom:1rem">Voici une selection de mes projets.</p></div>
+<div class="pg">
+
+<div class="pc rv"><div class="pi" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)">
+<svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+<div class="pb"><h3 class="pt">Gestion RH - ORMVAT Tadla</h3>
+<p class="pd">Projet de fin de stage : application web complete de gestion des ressources humaines pour l'Office Regional de Mise en Valeur Agricole du Tadla. Gestion des employes, conges, absences, tableau de bord et rapports.</p>
+<div class="ptc"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>JavaScript</span><span>MVC</span></div>
+<div class="pls"><a href="https://github.com/hicham135/fin_project_stage_lormvate_tadla_gestion-rh" class="pl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a></div></div></div>
+
+<div class="pc rv"><div class="pi" style="background:linear-gradient(135deg,#0d1117,#1a2332,#0d3320)">
+<svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5"><path d="M12 2a3 3 0 0 0-3 3v1H6a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v3a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3h1a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3V5a3 3 0 0 0-3-3z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/></svg></div>
+<div class="pb"><h3 class="pt">IoT - Monitoring Temperature &amp; Humidite</h3>
+<p class="pd">Serveur web embarque sur ESP32 pour le monitoring en temps reel de la temperature et humidite via capteur DHT11. Dashboard web accessible sur le reseau local.</p>
+<div class="ptc"><span>C/C++</span><span>ESP32</span><span>DHT11</span><span>Arduino</span><span>HTML/CSS</span></div>
+<div class="pls"><a href="https://github.com/hicham135/iot-Serveur-Web-ESP32-pour-le-Monitoring-de-Temp-rature-et-d-Humidit-avec-Capteur-DHT11-" class="pl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a></div></div></div>
+
+<div class="pc rv"><div class="pi" style="background:linear-gradient(135deg,#0f172a,#1e3a5f,#0c4a6e)">
+<svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 12v6"/></svg></div>
+<div class="pb"><h3 class="pt">Analyse des Precipitations - Hadoop</h3>
+<p class="pd">Projet Big Data d'analyse des donnees pluviometriques (dataset 2016). Traitement distribue avec Hadoop MapReduce et HDFS pour extraire des tendances climatiques et visualisations.</p>
+<div class="ptc"><span>Hadoop</span><span>MapReduce</span><span>HDFS</span><span>Java</span><span>Python</span></div>
+<div class="pls"><a href="https://github.com/hicham135" class="pl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a></div></div></div>
+
+<div class="pc rv"><div class="pi" style="background:linear-gradient(135deg,#1a0a0a,#4a1a1a,#6b1a1a)">
+<svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="1.5"><path d="M15 5v2"/><path d="M15 11v2"/><path d="M15 17v2"/><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4V7a2 2 0 0 1 2-2z"/></svg></div>
+<div class="pb"><h3 class="pt">Gestion de Tickets - Redis</h3>
+<p class="pd">Systeme de gestion de tickets utilisant Redis comme base de donnees en memoire. Creation, assignation, suivi et resolution de tickets avec file d'attente prioritaire.</p>
+<div class="ptc"><span>Redis</span><span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span></div>
+<div class="pls"><a href="https://github.com/hicham135" class="pl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a></div></div></div>
+
+<div class="pc rv"><div class="pi" style="background:linear-gradient(135deg,#1a1a0a,#2d2a0e,#4a3f11)">
+<svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4"/><path d="M12 19v4"/><path d="M4.22 4.22l2.83 2.83"/><path d="M16.95 16.95l2.83 2.83"/><path d="M1 12h4"/><path d="M19 12h4"/><path d="M4.22 19.78l2.83-2.83"/><path d="M16.95 7.05l2.83-2.83"/></svg></div>
+<div class="pb"><h3 class="pt">Mini-Projets Machine Learning</h3>
+<p class="pd">Collection de mini-projets de Machine Learning : classification, regression, clustering et deep learning sur des datasets varies avec visualisation des resultats.</p>
+<div class="ptc"><span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span></div>
+<div class="pls"><a href="https://github.com/hicham135" class="pl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a></div></div></div>
+
+<div class="pc rv"><div class="pi" style="background:linear-gradient(135deg,#0a1628,#1a2f5a,#2d1b69)">
+<svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg></div>
+<div class="pb"><h3 class="pt">PFE Management - Gestion des PFE</h3>
+<p class="pd">Application web full-stack de gestion des Projets de Fin d'Etudes. Gestion des sujets, affectation etudiants/encadrants, suivi des soutenances, notation et authentification securisee avec Spring Security (admin, enseignant, etudiant).</p>
+<div class="ptc"><span>Spring Boot</span><span>Spring Security</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
+<div class="pls"><a href="https://github.com/hicham135/pfe-management" class="pl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a></div></div></div>
+
+
+
+</div></div></section>
+
+<section class="ct sec" id="contact"><div class="ctn">
+<div class="rv"><span class="sl">Contact</span><h2 class="st">Travaillons ensemble</h2></div>
+<div class="cg">
+<div class="ci rv">
+<p>Vous avez un projet en tete ou une question ? N'hesitez pas a me contacter.</p>
+<div class="cls">
+<a href="mailto:hichamnidali62@gmail.com" class="cli"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>hichamnidali62@gmail.com</a>
+<a href="https://github.com/hicham135" target="_blank" class="cli"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>github.com/hicham135</a>
+<a href="https://linkedin.com/" target="_blank" class="cli"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>LinkedIn</a>
+</div></div>
+<div class="rv"><div class="cf" id="cf">
+<div class="fg"><input type="text" id="fn" placeholder="Votre nom" required><span class="em">Veuillez entrer votre nom.</span></div>
+<div class="fg"><input type="email" id="fe" placeholder="Votre email" required><span class="em">Veuillez entrer un email valide.</span></div>
+<div class="fg"><textarea id="fm" placeholder="Votre message..." required></textarea><span class="em">Veuillez entrer un message.</span></div>
+<button class="bs" id="sb" onclick="sf()">Envoyer le message</button>
+<div class="fs" id="fok">Message envoye avec succes !</div>
+<div class="fe" id="fno">Erreur lors de l'envoi. Reessayez.</div>
+</div></div></div></div></section>
+
+<footer class="ft"><div class="ctn">
+<p class="fc">&copy; 2026 <span>Hicham Nidali</span>. Tous droits reserves.</p>
+<div class="si">
+<a href="https://github.com/hicham135" target="_blank" class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+<a href="https://linkedin.com/" target="_blank" class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+<a href="https://twitter.com/" target="_blank" class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+</div></div></footer>
+
+<button class="btt" id="bt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script>
+var nb=document.getElementById('nb'),bt=document.getElementById('bt');
+window.addEventListener('scroll',function(){
+  if(scrollY>60){nb.classList.add('sc')}else{nb.classList.remove('sc')}
+  if(scrollY>500){bt.classList.add('vi')}else{bt.classList.remove('vi')}
+});
+var hm=document.getElementById('hm'),nl=document.getElementById('nl'),ov=document.getElementById('ov');
+hm.addEventListener('click',function(){hm.classList.toggle('on');nl.classList.toggle('op');ov.classList.toggle('sh');document.body.style.overflow=nl.classList.contains('op')?'hidden':''});
+function cn(){hm.classList.remove('on');nl.classList.remove('op');ov.classList.remove('sh');document.body.style.overflow=''}
+var rvs=document.querySelectorAll('.rv');
+var obs=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('vi')},i*100);obs.unobserve(e.target)}})},{threshold:.12});
+rvs.forEach(function(el){obs.observe(el)});
+
+// FORMSPREE: remplacez YOUR_FORM_ID par votre ID Formspree
+var FSU='https://formspree.io/f/xwvngdwe';
+
+function sf(){
+  var n=document.getElementById('fn'),e=document.getElementById('fe'),m=document.getElementById('fm'),b=document.getElementById('sb');
+  var v=true;
+  var gs=document.querySelectorAll('.fg');
+  for(var i=0;i<gs.length;i++){gs[i].classList.remove('er')}
+  document.getElementById('fok').classList.remove('sh');
+  document.getElementById('fno').classList.remove('sh');
+  if(!n.value.trim()){n.parentElement.classList.add('er');v=false}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.value.trim())){e.parentElement.classList.add('er');v=false}
+  if(!m.value.trim()){m.parentElement.classList.add('er');v=false}
+  if(v){
+    b.textContent='Envoi...';b.disabled=true;
+    fetch(FSU,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:n.value.trim(),email:e.value.trim(),message:m.value.trim()})})
+    .then(function(r){
+      if(r.ok){document.getElementById('fok').classList.add('sh');n.value='';e.value='';m.value='';setTimeout(function(){document.getElementById('fok').classList.remove('sh')},5000)}
+      else{document.getElementById('fno').classList.add('sh');setTimeout(function(){document.getElementById('fno').classList.remove('sh')},5000)}
+    })
+    .catch(function(){document.getElementById('fno').classList.add('sh');setTimeout(function(){document.getElementById('fno').classList.remove('sh')},5000)})
+    .finally(function(){b.textContent='Envoyer le message';b.disabled=false});
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(ev){var t=document.querySelector(this.getAttribute('href'));if(t){ev.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+var ss=document.querySelectorAll('.sec[id]'),ni=document.querySelectorAll('.nl a');
+window.addEventListener('scroll',function(){var c='';ss.forEach(function(s){if(scrollY>=s.offsetTop-100)c=s.getAttribute('id')});ni.forEach(function(l){l.style.color=l.getAttribute('href')==='#'+c?'var(--accent)':''})});
+</script>
+</body>
+</html>
